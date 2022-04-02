@@ -1,0 +1,119 @@
+{
+  "name": "sync2fusion",
+  "displayName": "Sync2Fusion",
+  "publisher": "Ranger",
+  "description": "VS Code extension to synch data changes in Fusion Org",
+  "version": "0.0.7",
+  "engines": {
+    "vscode": "^1.61.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:sync-sf-org.ext",
+    "onCommand:sync-sf-org.accstoken",
+    "onCommand:sync-sf-org.fileInfo"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sync-sf-org.ext",
+        "category": "Ranger",
+        "title": "Watch File Changes"
+      },
+      {
+        "command": "sync-sf-org.accstoken",
+        "category": "Ranger",
+        "title": "Connect with Fusion Org"
+      },
+      {
+        "command": "sync-sf-org.fileInfo",
+        "category": "Ranger",
+        "title": "Send To Fusion"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "sync-sf-org.accstoken",
+          "group": "YourGroup@1"
+        },
+        {
+          "command": "sync-sf-org.ext",
+          "group": "YourGroup@1"
+        },
+        {
+          "command": "sync-sf-org.fileInfo",
+          "group": "YourGroup@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "sync-sf-org.accstoken",
+          "group": "YourGroup@1"
+        },
+        {
+          "command": "sync-sf-org.ext",
+          "group": "YourGroup@1"
+        },
+        {
+          "command": "sync-sf-org.fileInfo",
+          "group": "YourGroup@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.61.0",
+    "@vscode/test-electron": "^2.0.3",
+    "eslint": "^8.6.0",
+    "glob": "^7.2.0",
+    "mocha": "^9.1.3",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "child_process": "^1.0.2",
+    "node-fetch": "^3.2.0",
+    "node-watch": "^0.7.3",
+    "os-name": "^5.0.1",
+    "package.json": "^2.0.1",
+    "platform": "^1.3.6",
+    "recursive-readdir": "^2.2.2",
+    "simple-git": "^3.2.6",
+    "xhr2": "^0.2.1",
+    "xml-js": "^1.6.11",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "connectToOrg": {
+    "clientId": "3MVG9riCAn8HHkYUSBH9Y.E4X2lLcnuCml2h5bFmbQTt5SPVdWDP3Ke_LyvBknriCIt0ZbNfbgM23Ts0cmEig",
+    "clientSecret": "07874D7B90483EEAD4D773CDF81374C8107F1AB3F16E8820F91195B4096E2015",
+    "redirectURL": "https://caseapp",
+    "password": "Developer@2022",
+    "username": "sathik@ranger.fusion",
+    "posturl": "https://ranger-sathik-dev-ed.my.salesforce.com//services/data/v50.0/sobjects/Component__c",
+    "childUrl": "https://ranger-sathik-dev-ed.my.salesforce.com//services/data/v50.0/sobjects/Sub_component__c"
+  },
+  "thangarasuPDO": {
+    "clientId": "3MVG9riCAn8HHkYVpxKNyuRdwfGO7SIA5sqPIpqwXjRggqgrvY.Nlc14OGeUfbWwWUu2C2I2yeusmpeHi9ZkY",
+    "clientSecret": "4ACD37A3D565A87155D7EEE3B58764B9FE3733A5B8927B977D4AF8AD20D0E9C5",
+    "redirectURL": "https://caseapp",
+    "password": "Tr4$Tr4$",
+    "username": "thangarasu@ranger.fusion",
+    "posturl": "https://ranger-thangarasu-dev-ed.my.salesforce.com/services/data/v50.0/sobjects/Component__c",
+    "childUrl": "https://ranger-thangarasu-dev-ed.my.salesforce.com/services/data/v50.0/sobjects/Sub_component__c"
+  },
+  "extensionDependencies": [
+    "vscode.git"
+  ]
+}
